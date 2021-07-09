@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/PaymentListFragment">
+
+    <fragment
+        android:id="@+id/PaymentListFragment"
+        android:name="com.xadopu4.bankclient.ui.PaymentListFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_payment_list">
+
+
+        <action
+            android:id="@+id/action_PaymentListFragment_to_AddPayment"
+            app:destination="@id/AddPayment" />
+        <action
+            android:id="@+id/action_PaymentListFragment_to_PaymentInfoFragment"
+            app:destination="@id/PaymentInfoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/PaymentInfoFragment"
+        android:name="com.xadopu4.bankclient.ui.PaymentInfoFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_payment_info">
+
+
+        <argument
+            android:name="paymentIndex"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_PaymentInfoFragment_to_PaymentListFragment"
+            app:destination="@id/PaymentListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AddPayment"
+        android:name="com.xadopu4.bankclient.ui.AddPayment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_add_payment">
+
+        <action
+            android:id="@+id/action_AddPayment_to_PaymentListFragment"
+            app:destination="@id/PaymentListFragment" />
+    </fragment>
+
+
+</navigation>
